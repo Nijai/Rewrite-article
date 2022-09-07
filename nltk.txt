@@ -1,27 +1,28 @@
-Penn Treebank 
-Punkt Tokenizer 
+ptb
+Punkt
+rslp
 perluniprops
-Sample Grammars
-Grammars for Spanish
-Large context-free and feature-based grammars for parser comparison
-Grammars from NLTK Book
-Grammars for Basque
-Mappings to the Universal Part-of-Speech Tagset
-Pros and Cons
-Web Text Corpus
-VerbNet Lexicon
-Toolbox Sample Files
-Word Lists
-Unicode Samples
-Averaged Perceptron Tagger
-City Database
-Twitter Samples
-C-Span Inaugural Address Corpus
-Switchboard Corpus Sample
-Paradigm Corpus
-Gazeteer Lists
-Penn Treebank Sample
-Dependency Parsed Treebank
-Genesis Corpus
-Indian Language POS-Tagged Corpus
-Help on Tagsets
+sample_grammars
+spanish_grammars
+large_grammars
+book_grammars
+basque_grammars
+universal_tagset
+pros_cons
+webtext
+verbnet3
+toolbox
+words
+unicode_samples
+averaged_perceptron_tagger
+city_database
+twitter_samples
+inaugural
+switchboard
+paradigms
+gazetteers
+treebank
+dependency_treebank
+genesis
+indian
+tagsets
