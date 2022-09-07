@@ -28,7 +28,7 @@ nltk==3.7
 numpy==1.23.2
 packaging==21.3
 pandas==1.4.4
-parrot==@ git+https://github.com/PrithivirajDamodaran/Parrot.git@2cffbe911341e52dc73b77f9b0154c18d570603f
+parrot @ git+https://github.com/PrithivirajDamodaran/Parrot.git@2cffbe911341e52dc73b77f9b0154c18d570603f
 Pillow==9.2.0
 protobuf==3.20.0
 pyarrow==9.0.0
