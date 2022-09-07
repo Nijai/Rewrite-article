@@ -1,1 +1,27 @@
-wordnet pros_cons reuters
+Penn Treebank 
+Punkt Tokenizer 
+perluniprops
+Sample Grammars
+Grammars for Spanish
+Large context-free and feature-based grammars for parser comparison
+Grammars from NLTK Book
+Grammars for Basque
+Mappings to the Universal Part-of-Speech Tagset
+Pros and Cons
+Web Text Corpus
+VerbNet Lexicon
+Toolbox Sample Files
+Word Lists
+Unicode Samples
+Averaged Perceptron Tagger
+City Database
+Twitter Samples
+C-Span Inaugural Address Corpus
+Switchboard Corpus Sample
+Paradigm Corpus
+Gazeteer Lists
+Penn Treebank Sample
+Dependency Parsed Treebank
+Genesis Corpus
+Indian Language POS-Tagged Corpus
+Help on Tagsets
