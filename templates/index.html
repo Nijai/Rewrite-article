@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<!--link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" /-->
+
+
+  <title>Split Screen</title>
+  
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+  
+<style>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,800');
+
+@media (min-width: 500px) {
+  .col-sm-6 {
+    width: 50%;
+  }
+}
+html, body {
+  height: 100%;
+  min-height: 18em;
+}
+
+.frontend-side {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74452/website-code.png");
+
+}
+
+.uiux-side {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74452/website-post-its.png");
+}
+
+.split-pane {
+  padding-top: 1em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 50%;
+  min-height: 9em;
+  font-size: 2em;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+	font-weight:300;
+;
+}
+@media(min-width: 500px) {
+  .split-pane {
+    padding-top: 2em;
+    height: 100%;
+  }
+}
+.split-pane > div {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  text-align: center;
+}
+.split-pane > div .text-content {
+  line-height: 1.6em;
+  margin-bottom: 1em;
+}
+.split-pane > div .text-content .big {
+  font-size: 1.5em;
+}
+.split-pane > div img {
+  height: 1.3em;
+}
+@media (max-width: 500px) {
+  .split-pane > div img {
+    display:none;
+  }
+}
+.split-pane button, .split-pane a.button {
+  font-family: 'Open Sans', sans-serif;
+	font-weight:800;
+  background: none;
+  border: 1px solid white;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  width: 15em;
+  padding: 0.7em;
+  font-size: 0.5em;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+	cursor: pointer;
+}
+.split-pane button:hover, .split-pane a.button:hover {
+  text-decoration: none;
+  background-color: white;
+  border-color: white;
+	cursor: pointer;
+}
+.uiux-side.split-pane button:hover, .split-pane a.button:hover {
+  color: violet;
+}
+.frontend-side.split-pane button:hover, .split-pane a.button:hover {
+  color: blue;
+}
+
+#split-pane-or {
+  font-size: 2em;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+@media (max-width: 925px) {
+  #split-pane-or {
+    top:15%;
+	border-radius: 50%;
+  }
+}
+#split-pane-or > div img {
+  height: 2.5em;
+  border-radius: 50%;
+}
+@media (max-width: 500px) {
+  #split-pane-or {
+    position: absolute;
+    top: 50px;
+  }
+  #split-pane-or > div img {
+    height:2em;
+  }
+}
+@media(min-width: 500px) {
+  #split-pane-or {
+    font-size: 3em;
+  }
+}
+.big {
+  font-size: 1em;
+}
+
+#slogan {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  text-align: center;
+  vertical-align: baseline;
+  top: 0.5em;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.4em;
+}
+@media(min-width: 500px) {
+  #slogan {
+    top: 5%;
+    font-size: 1.8em;
+  }
+}
+#slogan img {
+  height: 0.7em;
+}
+.bold {
+	text-transform:uppercase;
+}
+.big {
+	font-weight:300;
+}
+input, select, text{
+    color: #000000;
+}
+
+text:focus, input:focus {
+    color: #000000;
+}
+input, select, textarea{
+    color: #000000;
+}
+
+textarea:focus, input:focus {
+    color: #000000;
+}
+textarea {
+    border: none;
+    border-collapse:collapse;
+	border-top: #000 1px solid;
+	border-bottom: #000 1px solid;
+    border-right: #000 1px solid;
+    border-left: #000 1px solid;
+	border-radius: 5%;
+    resize: none;
+    margin: 0;
+    padding: 0;
+    width: 400px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  font-family:verdana;
+}
+#navi{
+  width:100%;
+  height:100vh;
+  background-size: cover;
+}
+nav{
+  width: 100%;
+  height: 50px;
+  background-color: #0005;
+  line-height: 50px;
+  font-size: 20px;
+}
+nav ul{
+  float: right;
+  margin-right: 30px;
+}
+nav ul li{
+  list-style-type: none;
+  display: inline-block;
+  transition: 0.7s all;
+}
+nav ul li:hover{
+  background-color:white;
+}
+nav ul li a{
+  text-decoration: none;
+  color: violet;
+}
+
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+<script >
+function eraseText() {
+    document.getElementById('txt2').value = "";
+	document.getElementById('txt1').value = "";
+}
+</script>
+
+</head>
+
+<body translate="no" >
+
+
+
+  <div class='split-pane col-xs-12 col-sm-6 uiux-side'>
+  
+  <div>
+    <!--img src='https://bit.ly/BCR-design'-->
+    <form action="/" method="post">  
+	<div class='text-content'>
+		<div class='big'>Enter Your Text</div>
+		
+		<!--input type="text" name="text" size="20"-->
+		<textarea id="txt1" name="text" rows="5" cols="30" style="width:100%,height=100%" required>{{ sample_input }} </textarea>
+		
+	</div>
+    <button type="submit" value="Submit">
+      Rewrite Here
+    </button>
+  </div>
+</div>
+<div class='split-pane col-xs-12 col-sm-6 frontend-side'>
+
+  <div id ="navi">
+    <!--img src='https://bit.ly/bcr-dev'-->
+	<nav>
+        <ul>
+            <li><a href="#">Article Rewriter</a></li>
+            <li><a href="plagarism.html">Plagarism Checker</a></li>
+            <li><a href="grammer.html">Grammer Checker</a></li>
+        </ul>
+    </nav>
+	<br>
+	<br>
+    <div class='text-content'>
+      <div class='big'>Rewritten Text</div>
+		
+		<textarea id="txt2" name="text2" rows="5" cols="30"style="width:100%,height=100%">{{ sample_output }} </textarea>
+		
+		<br>
+		<button id = "btn" onclick="javascript:eraseText();"> Reset </button>
+    </div>
+    <!--a class='button'>
+      SHOW ME THE CODE
+    </a-->
+  </div>
+</div>
+<div id='split-pane-or'>
+  <div>
+    <img src='https://i.gifer.com/origin/93/935d72c7bc35828ea93b5898691f28fd_w200.gif'>
+  </div>
+</div>
+  
+  
+  
+  
+
+</body>
+
+</html>
