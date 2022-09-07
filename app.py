@@ -39,13 +39,13 @@ def my_form_post():
     sample_input = request.form['text']
     sample_output = ''
     phrases = sample_input.split('.')
-    PATH = r"C:\Users\prasad\Documents\rewrite_Website\parrot.pth"
+    PATH = r"parrot.pth"
     print("path defined")
     print("lets load model from path")
     parrot_inference = torch.load(PATH)
     for phrase in phrases:
         ph = phrase
-        para_phrases = parrot_inference.augment(input_phrase=phrase)
+        para_phrases = parrot_inference.rephrase(input_phrase=phrase)
         if para_phrases != None:
             for para_phrase in para_phrases:
                 sample_output= sample_output + para_phrase[0]
