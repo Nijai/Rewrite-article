@@ -66,7 +66,7 @@ def grammer():
 @app.route('/grammer.html',methods=['POST'])
 def my_grammer_post():
     args = TTSettings(num_beams = 5, min_length = 1)
-    PATH = r"C:\Users\prasad\Documents\rewrite_Website\happy.pth"
+    PATH = r"happy.pth"
     happy_tt = torch.load(PATH)
     if request.method == 'POST':
         sample_input = request.form['text']
