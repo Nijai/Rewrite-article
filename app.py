@@ -77,6 +77,6 @@ def page_not_found(error):
     return render_template('/')
 
 if __name__ == "__main__":
-    #rewrite()
-    #greturn()
+    rewrite()
+    greturn()
     app.run(debug=True)
