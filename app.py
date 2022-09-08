@@ -1,34 +1,13 @@
 from flask import  Flask, jsonify, render_template, request
-import language_tool_python
 from parrot import Parrot
 import subprocess
 import sys
 from happytransformer import HappyTextToText, TTSettings
 import torch
+import rewriterpy as rp
+import grammer as g
+
 app = Flask(__name__)
-
-def greturn():
-    print("start")
-    happy_tt = HappyTextToText("T5","vennify/t5-base-grammar-correction")
-    print("args completed")
-    PATH = r"happy.pth"
-    print("Path defined!",end="")
-    torch.save(happy_tt,PATH)
-    print("model loaded")
-    return
-
-
-def rewrite():
-    print("start")
-    
-    print("-Lets load model-",end="")
-    parrot = Parrot(model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
-    print("Model loaded!-",end="")
-    PATH = r"parrot.pth"
-    print("Path defined!-",end="")
-    torch.save(parrot,PATH)
-    print("Saved Model-",end="")
-    return
 
 @app.route('/')
 def start():
@@ -46,6 +25,7 @@ def my_form_post():
     for phrase in phrases:
         ph = phrase
         para_phrases = parrot_inference.rephrase(input_phrase=phrase)
+        print("sentence found")
         if para_phrases != None:
             for para_phrase in para_phrases:
                 sample_output= sample_output + para_phrase[0]
@@ -54,10 +34,6 @@ def my_form_post():
             sample_output= sample_output + ph
     print("Now send")
     return render_template('index.html', sample_input=sample_input, sample_output=sample_output)
-
-@app.route('/plagarism.html')
-def plagarism():
-    return render_template('plagarism.html')
 
 @app.route('/grammer.html')
 def grammer():
@@ -72,11 +48,13 @@ def my_grammer_post():
         sample_input = request.form['text']
         sample_output = happy_tt.generate_text(sample_input,args=args)
         return render_template('grammer.html', sample_input=sample_input, sample_output=sample_output.text)
+
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template('/')
+    return render_template('error.html')
+@app.errorhandler(500)
+def page_not_found(error):
+    return render_template('servererror.html')
 
 if __name__ == "__main__":
-    rewrite()
-    greturn()
     app.run(debug=True)

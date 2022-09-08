@@ -29,16 +29,13 @@
 html, body {
   height: 100%;
   min-height: 18em;
+  //background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74452/website-post-its.png");
+  //background-image : url("https://img.freepik.com/free-photo/abstract-luxury-plain-blur-grey-black-gradient-used-as-background-studio-wall-display-your-products_1258-63641.jpg?w=2000");
+  
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.frontend-side {
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74452/website-code.png");
-
-}
-
-.uiux-side {
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74452/website-post-its.png");
-}
 
 .split-pane {
   padding-top: 1em;
@@ -48,9 +45,9 @@ html, body {
   height: 50%;
   min-height: 9em;
   font-size: 2em;
-  color: white;
+  color: #000080;
   font-family: 'Open Sans', sans-serif;
-	font-weight:300;
+	font-weight:100;
 ;
 }
 @media(min-width: 500px) {
@@ -71,11 +68,14 @@ html, body {
   line-height: 1.6em;
   margin-bottom: 1em;
 }
-.split-pane > div .text-content .big {
-  font-size: 1.5em;
+.split-pane > div  .big {
+  font-size: 100%;
+}
+.split-pane > div .text-content {
+  font-size: 100%;
 }
 .split-pane > div img {
-  height: 1.3em;
+  height: 100%;
 }
 @media (max-width: 500px) {
   .split-pane > div img {
@@ -92,89 +92,35 @@ html, body {
   border-radius: 5px;
   width: 15em;
   padding: 0.7em;
-  font-size: 0.5em;
+  font-size: 50%;
   -moz-transition: all 0.2s ease-out;
   -o-transition: all 0.2s ease-out;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
   text-decoration: none;
-  color: white;
+  color: #000080;
   display: inline-block;
 	cursor: pointer;
 }
 .split-pane button:hover, .split-pane a.button:hover {
   text-decoration: none;
   background-color: white;
-  border-color: white;
+  border-color: #000080;
 	cursor: pointer;
 }
 .uiux-side.split-pane button:hover, .split-pane a.button:hover {
-  color: violet;
+  color: #6082B6;
 }
 .frontend-side.split-pane button:hover, .split-pane a.button:hover {
-  color: blue;
+  color: #6082B6;
 }
 
-#split-pane-or {
-  font-size: 2em;
-  color: white;
-  font-family: 'Open Sans', sans-serif;
-  text-align: center;
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-@media (max-width: 925px) {
-  #split-pane-or {
-    top:15%;
-	border-radius: 50%;
-  }
-}
-#split-pane-or > div img {
-  height: 2.5em;
-  border-radius: 50%;
-}
-@media (max-width: 500px) {
-  #split-pane-or {
-    position: absolute;
-    top: 50px;
-  }
-  #split-pane-or > div img {
-    height:2em;
-  }
-}
-@media(min-width: 500px) {
-  #split-pane-or {
-    font-size: 3em;
-  }
-}
+
 .big {
   font-size: 1em;
 }
 
-#slogan {
-  position: absolute;
-  width: 100%;
-  z-index: 100;
-  text-align: center;
-  vertical-align: baseline;
-  top: 0.5em;
-  color: white;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.4em;
-}
-@media(min-width: 500px) {
-  #slogan {
-    top: 5%;
-    font-size: 1.8em;
-  }
-}
-#slogan img {
-  height: 0.7em;
-}
+
 .bold {
 	text-transform:uppercase;
 }
@@ -196,7 +142,8 @@ textarea:focus, input:focus {
     color: #000000;
 }
 textarea {
-    border: none;
+	font-size: 20px;
+	border: none;
     border-collapse:collapse;
 	border-top: #000 1px solid;
 	border-bottom: #000 1px solid;
@@ -240,16 +187,64 @@ nav ul li:hover{
 }
 nav ul li a{
   text-decoration: none;
-  color: violet;
+  color: #6082B6;
 }
 
+
+
+.uiux-side.split-pane input:hover{
+  color: white;
+}
+textarea {
+	padding-left: 10px; 
+	padding-top: 10px; 
+}
+textarea::placeholder {
+	font: 15px sans-serif;
+}
+div#loading {
+    width: 35px;
+    height: 35px;
+    display: none;
+    background: url("https://thumbs.gfycat.com/LittleBestAmoeba-size_restricted.gif") no-repeat;
+    cursor: wait;
+    }
+	
+.typewriter h1 { 
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .10em solid transparent; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3s steps(50, end),
+    blink-caret .75s step-end 8;
+  padding-left: 500px;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: black }
+  10% { border-color: transparent; }
+}
 </style>
 
   <script>
   window.console = window.console || function(t) {};
 </script>
 
-  
+  <script type="text/javascript">// <![CDATA[
+        function loading(){
+            $("#loading").show();
+            $("#content").hide();       
+        }
+// ]]></script>
   
   <script>
   if (document.location.search.match(/type=embed/gi)) {
@@ -264,60 +259,70 @@ function eraseText() {
 }
 </script>
 
+
 </head>
 
 <body translate="no" >
-
-
-
-  <div class='split-pane col-xs-12 col-sm-6 uiux-side'>
-  
-  <div>
-    <!--img src='https://bit.ly/BCR-design'-->
-    <form action="/" method="post">  
-	<div class='text-content'>
-		<div class='big'>Enter Your Text</div>
-		
-		<!--input type="text" name="text" size="20"-->
-		<textarea id="txt1" name="text" rows="5" cols="30" style="width:100%,height=100%" required>{{ sample_input }} </textarea>
-		
-	</div>
-    <button type="submit" value="Submit">
-      Rewrite Here
-    </button>
-  </div>
-</div>
-<div class='split-pane col-xs-12 col-sm-6 frontend-side'>
-
-  <div id ="navi">
-    <!--img src='https://bit.ly/bcr-dev'-->
-	<nav>
+<nav>
         <ul>
             <li><a href="#">Article Rewriter</a></li>
-            <li><a href="plagarism.html">Plagarism Checker</a></li>
             <li><a href="grammer.html">Grammer Checker</a></li>
         </ul>
-    </nav>
+</nav>
+<br>
+<br>
+<div class="typewriter">
+		<h1 style="color:#000080; font-weight: bold; font-size:300%;">Article Rewriter</h1>
+</div>
+<div class='split-pane col-xs-12 col-sm-6 uiux-side'>
+  <div>
+  <form action="/" method="post">  
+	<div class='text-content'>
+		<div class='big'>Enter Your Text</div>
+		<textarea id="txt1" name="text" rows="5" cols="30" autofocus required  placeholder="  Either type text manually or upload .txt file. Put Fullstop after every statement." value="">{{sample_input}}</textarea>
+		<input id="myFile" name="myFile" type="file" style="font-size:15px;"/>
+		<script type="text/javascript">
+			document.getElementById('myFile')
+            .addEventListener('change', function() {
+              
+            var fr=new FileReader();
+            fr.onload=function(){
+                document.getElementById('txt1')
+                        .textContent=fr.result;
+            }
+              
+            fr.readAsText(this.files[0]);
+			})
+		</script>
+		<script>
+		   function setTextToCurrentPos() {
+                var curPos =
+                    document.getElementById("txt1").selectionStart;
+                console.log(curPos);
+                let x = $("#txt1").val();
+                let text_to_insert = $("#insert").val();
+                $("#txt1").val(x.slice(0, curPos) + text_to_insert + x.slice(curPos));
+            }
+        </script>
+    <button type="submit" value="Submit" onclick="loading();">Rewrite Here</button>
+	</div>
+  </div>
+</div>
+
+<div class='split-pane col-xs-12 col-sm-6 frontend-side'>
+<div id ="navi">
+	<div class='text-content'>
 	<br>
-	<br>
-    <div class='text-content'>
+	  <br>
       <div class='big'>Rewritten Text</div>
-		
-		<textarea id="txt2" name="text2" rows="5" cols="30"style="width:100%,height=100%">{{ sample_output }} </textarea>
-		
+		<textarea id="txt2" name="text2" rows="5" cols="30">{{sample_output}} </textarea>
+		<br>
 		<br>
 		<button id = "btn" onclick="javascript:eraseText();"> Reset </button>
     </div>
-    <!--a class='button'>
-      SHOW ME THE CODE
-    </a-->
   </div>
 </div>
-<div id='split-pane-or'>
-  <div>
-    <img src='https://i.gifer.com/origin/93/935d72c7bc35828ea93b5898691f28fd_w200.gif'>
-  </div>
-</div>
+
   
   
   

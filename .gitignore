@@ -1,2 +1,8 @@
 node_modules
 .venv
+grammer.py
+rewriter.py
+static
+test.txt
+parrot.pth
+happy.pth
